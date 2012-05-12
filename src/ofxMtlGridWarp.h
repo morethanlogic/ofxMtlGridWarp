@@ -18,6 +18,7 @@ public:
                 ~ofxMtlGridWarp();
     
     void        init(int _numRows, int _numCols, float _x, float _y, float _width, float _height);
+    void        setOffset(float _xOffset, float _yOffset);
     void        setScale(float _scale);
     
     void        draw();
@@ -32,6 +33,7 @@ public:
     int         rows, cols;
     ofPoint*    pts;
 	int			onPoint;
+    float       xOffset, yOffset;
     float       scale;
     bool        bTracking;
     

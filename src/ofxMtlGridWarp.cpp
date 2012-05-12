@@ -17,6 +17,8 @@
 //--------------------------------------------------------------
 ofxMtlGridWarp::ofxMtlGridWarp() {
     onPoint = kPointNone;
+    xOffset = 0;
+    yOffset = 0;
     scale = 1;
     bTracking = false;
 }
@@ -42,6 +44,12 @@ void ofxMtlGridWarp::init(int _numRows, int _numCols, float _x, float _y, float 
     
     onPoint = kPointNone;
     bTracking = false;
+}
+
+//--------------------------------------------------------------
+void ofxMtlGridWarp::setOffset(float _xOffset, float _yOffset) {
+    xOffset = _xOffset;
+    yOffset = _yOffset;
 }
 
 //--------------------------------------------------------------
@@ -114,7 +122,7 @@ void ofxMtlGridWarp::mousePressed(ofMouseEventArgs& args) {
 
 //--------------------------------------------------------------
 void ofxMtlGridWarp::mouseDragged(ofMouseEventArgs& args) {
-    ofPoint mouse(args.x / scale, args.y / scale);
+    ofPoint mouse((args.x - xOffset) / scale, (args.y - yOffset) / scale);
     for (int i=0; i < rows * cols; i++) {	
         if (pts[i].distance(mouse) < kPointThreshold) {
             onPoint = i;
