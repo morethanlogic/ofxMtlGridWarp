@@ -31,6 +31,7 @@ public:
     bool        save(const string& _filename);
     
     int         rows, cols;
+    float       sliceWidth, sliceHeight;
     ofPoint*    pts;
 	int			onPoint;
     float       xOffset, yOffset;

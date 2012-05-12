@@ -34,6 +34,9 @@ void ofxMtlGridWarp::init(int _numRows, int _numCols, float _x, float _y, float 
     cols = _numCols + 1;
     pts = new ofPoint[rows * cols];
     
+    sliceWidth = _width / (float)_numCols;
+    sliceHeight = _height / (float)_numRows;
+    
     // set the starting coordinates
     for (int c=0; c < cols; c++) {
         for (int r=0; r < rows; r++) {
