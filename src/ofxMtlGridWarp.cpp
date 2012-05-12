@@ -93,18 +93,18 @@ void ofxMtlGridWarp::draw() {
 
 //--------------------------------------------------------------
 void ofxMtlGridWarp::startTracking() {
-    ofAddListener(ofEvents.mousePressed, this, &ofxMtlGridWarp::mousePressed);
-    ofAddListener(ofEvents.mouseReleased, this, &ofxMtlGridWarp::mouseReleased);
-    ofAddListener(ofEvents.mouseDragged, this, &ofxMtlGridWarp::mouseDragged);
+    ofAddListener(ofEvents().mousePressed, this, &ofxMtlGridWarp::mousePressed);
+    ofAddListener(ofEvents().mouseReleased, this, &ofxMtlGridWarp::mouseReleased);
+    ofAddListener(ofEvents().mouseDragged, this, &ofxMtlGridWarp::mouseDragged);
     
     bTracking = true;
 }
 
 //--------------------------------------------------------------
 void ofxMtlGridWarp::stopTracking() {
-    ofRemoveListener(ofEvents.mousePressed, this, &ofxMtlGridWarp::mousePressed);
-    ofRemoveListener(ofEvents.mouseReleased, this, &ofxMtlGridWarp::mouseReleased);
-    ofRemoveListener(ofEvents.mouseDragged, this, &ofxMtlGridWarp::mouseDragged);
+    ofRemoveListener(ofEvents().mousePressed, this, &ofxMtlGridWarp::mousePressed);
+    ofRemoveListener(ofEvents().mouseReleased, this, &ofxMtlGridWarp::mouseReleased);
+    ofRemoveListener(ofEvents().mouseDragged, this, &ofxMtlGridWarp::mouseDragged);
     
     bTracking = false;
 }
