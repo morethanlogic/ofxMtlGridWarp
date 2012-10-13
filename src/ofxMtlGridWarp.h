@@ -21,7 +21,7 @@ public:
     void        setOffset(float _xOffset, float _yOffset);
     void        setScale(float _scale);
     
-    void        draw();
+    void        draw(ofTexture &_text);
     
     void        startTracking();
     void        stopTracking();
@@ -30,17 +30,22 @@ public:
     bool        load(const string& _filename);
     bool        save(const string& _filename);
     
-    int         rows, cols;
-    float       sliceWidth, sliceHeight;
-    ofPoint*    pts;
-	int			onPoint;
-    float       xOffset, yOffset;
-    float       scale;
-    bool        bTracking;
+    
     
 private:
     void        mousePressed(ofMouseEventArgs& args);
     void        mouseDragged(ofMouseEventArgs& args);
     void        mouseReleased(ofMouseEventArgs& args);
+    
+    ofVboMesh   mesh;
+    
+    int         rows, cols;
+    float       sliceWidth, sliceHeight;
+    ofPoint*    pts;
+	int			selectedVertex;
+    float       xOffset, yOffset;
+    float       scale;
+    
+    bool        bTracking;
     
 };
