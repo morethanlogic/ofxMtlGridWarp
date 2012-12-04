@@ -62,6 +62,8 @@ void ofxMtlGridWarp::setScale(float _scale) {
 
 //--------------------------------------------------------------
 void ofxMtlGridWarp::draw() {
+    ofPushStyle();
+
     ofSetColor(255, 255, 0);
 
     // draw the vertical lines
@@ -85,6 +87,7 @@ void ofxMtlGridWarp::draw() {
     }
     
     // draw the points
+    ofSetRectMode(OF_RECTMODE_CENTER);
     for (int i=0; i < rows * cols; i++) {
         if (i == onPoint)
             ofSetColor(255, 0, 0);
@@ -92,6 +95,8 @@ void ofxMtlGridWarp::draw() {
             ofSetColor(255, 255, 0);
         ofRect(pts[i].x, pts[i].y, kPointSize, kPointSize);
     }
+
+    ofPopStyle();
 }
 
 //--------------------------------------------------------------
