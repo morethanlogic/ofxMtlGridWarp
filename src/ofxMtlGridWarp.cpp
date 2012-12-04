@@ -125,20 +125,23 @@ void ofxMtlGridWarp::toggleTracking() {
 
 //--------------------------------------------------------------
 void ofxMtlGridWarp::mousePressed(ofMouseEventArgs& args) {
-    
-}
-
-//--------------------------------------------------------------
-void ofxMtlGridWarp::mouseDragged(ofMouseEventArgs& args) {
     ofPoint mouse((args.x - xOffset) / scale, (args.y - yOffset) / scale);
-    for (int i=0; i < rows * cols; i++) {	
+    for (int i=0; i < rows * cols; i++) {
         if (pts[i].distance(mouse) < kPointThreshold) {
             onPoint = i;
             pts[i].set(mouse);
 
             break;
         }
-    }	
+    }
+}
+
+//--------------------------------------------------------------
+void ofxMtlGridWarp::mouseDragged(ofMouseEventArgs& args) {
+    if (onPoint != kPointNone) {
+        ofPoint mouse((args.x - xOffset) / scale, (args.y - yOffset) / scale);
+        pts[onPoint].set(mouse);
+    }
 }
 
 //--------------------------------------------------------------
